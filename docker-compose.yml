@@ -1,0 +1,20 @@
+master: 
+  build: .
+  environment:
+    - MYSQL_SERVER_ID=1
+    - MYSQL_DATABASE=db
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_PASSWORD=user
+    - MYSQL_USER=user
+
+slave:
+  build: .
+  links:
+    - master
+  environment:
+    - MYSQL_SERVER_ID=2
+    - MYSQL_DATABASE=db
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_PASSWORD=user
+    - MYSQL_USER=user
+
